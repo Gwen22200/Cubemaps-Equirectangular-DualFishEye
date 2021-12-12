@@ -19,12 +19,21 @@ filePath = sys.argv[1]
 # Y -> X
 # Z -> Y
 
-posx = Image.open(filePath+"posz.jpg")
-negx = Image.open(filePath+"negz.jpg")
-posy = Image.open(filePath+"posx.jpg")
-negy = Image.open(filePath+"negx.jpg")
-posz = Image.open(filePath+"posy.jpg")
-negz = Image.open(filePath+"negy.jpg")
+
+#posx = Image.open(filePath+"posz.jpg")
+#negx = Image.open(filePath+"negz.jpg")
+#posy = Image.open(filePath+"posx.jpg")
+#negy = Image.open(filePath+"negx.jpg")
+#posz = Image.open(filePath+"posy.jpg")
+#negz = Image.open(filePath+"negy.jpg")
+
+#adaptation au nom de fichier norme cube 360
+posx = Image.open(filePath+"front.jpg")
+negx = Image.open(filePath+"back.jpg")
+posy = Image.open(filePath+"right.jpg")
+negy = Image.open(filePath+"left.jpg")
+posz = Image.open(filePath+"top.jpg")
+negz = Image.open(filePath+"down.jpg")
 
 squareLength = posx.size[0]
 halfSquareLength = squareLength/2
@@ -167,4 +176,4 @@ for loopY in range(0,int(outputHeight)):		# 0..height-1 inclusive
 		
 outputImage = Image.new("RGB",((int(outputWidth)),(int(outputHeight))), None)
 outputImage.putdata(output)
-outputImage.save(filePath+"EQUI.png")
+outputImage.save(filePath+"pano360.png")
